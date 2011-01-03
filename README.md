@@ -1,9 +1,9 @@
 Modified Signature Survey
---------------------------
+==========================
 
 **What use is it?**
 
-First I'll summarize a few of the neat points of the original Signature Survey:
+First I'll summarize a few of the neat points of the original [Signature Survey](http://c2.com/doc/SignatureSurvey/):
 
 * Quick visual summary of code of a file by file basis.
 * Easy to distinguish classes with low and high complexity 
