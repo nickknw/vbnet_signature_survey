@@ -4,7 +4,7 @@ Modified Signature Survey
 What use is it?
 --------------------------
 
-First I'll summarize a few of the neat points of the original [Signature Survey](http://c2.com/doc/SignatureSurvey/):
+First I'll summarize a few of the neat points of Ward Cunningham's original [Signature Survey](http://c2.com/doc/SignatureSurvey/):
 
 * Quick visual summary of code of a file by file basis.
 * Easy to distinguish classes with low and high complexity 
@@ -32,3 +32,5 @@ Examples
 [(Click for full size)](http://i.imgur.com/KRRQl.png)
 
 [![Picture of a VB.NET signature survey page](http://i.imgur.com/KRRQl.png)](http://i.imgur.com/KRRQl.png)
+
+**TODO:** find an existing open source project to generate a working example from
