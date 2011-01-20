@@ -1,7 +1,8 @@
 Modified Signature Survey
 ==========================
 
-**What use is it?**
+What use is it?
+--------------------------
 
 First I'll summarize a few of the neat points of the original [Signature Survey](http://c2.com/doc/SignatureSurvey/):
 
@@ -25,6 +26,9 @@ And a few things that were adjusted because of language and personal preference:
 * In the 'detailed view' of each file, I would prefer to see just a list of the methods, with parameter types and the return type, instead of the whole file. I can open the whole file in my main editor, but having a list of the methods in the order they are in is quite helpful. So this is what I have done in my implementation.
 
 
-**Examples**
+Examples
+--------------------------
 
-TODO!
+[(Click for full size)](http://i.imgur.com/KRRQl.png)
+
+[![Picture of a VB.NET signature survey page](http://i.imgur.com/KRRQl.png)](http://i.imgur.com/KRRQl.png)
