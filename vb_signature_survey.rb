@@ -96,50 +96,50 @@ def vb_file_report(filename)
 		if continued_function_sig
         	    detail_page_text.concat indent[] + line.strip.gsub(/</, "&lt;").gsub(/>/, "&gt;") + "<br>" + indent[] 
 		    continued_function_sig = false unless line =~ /_$/ 
-        	elsif line =~ /#Region/
+		elsif line =~ /^\s+'/
+		    signature += "'"
+		    detail_page_text.concat "'"
+        	elsif line =~ /#Region/i
         	    detail_page_text.concat "<br>" + indent[] + line.strip.gsub(/</, "&lt;").gsub(/>/, "&gt;") + "<br>" + indent[]
         	    indent_level += 1
 		    signature += "."
-        	elsif line =~ /#End Region/ 
+        	elsif line =~ /#End Region/i
         	    indent_level -= 1
         	    detail_page_text.concat "<br>" + indent[] + line.strip.gsub(/</, "&lt;").gsub(/>/, "&gt;") + "<br>" + indent[]
 		    signature += "."
-		elsif line =~ /(End\s+Sub|End\s+Function)/
+		elsif line =~ /(End\s+Sub|End\s+Function)/i
         	    detail_page_text.concat "<br>" + indent[] + line.strip.gsub(/</, "&lt;").gsub(/>/, "&gt;") + "<br>" + indent[] 
 		    signature += "}"
-		elsif line =~ /Exit Sub/
+		elsif line =~ /Exit Sub/i
 		    #ugly special case; treat like normal line
         	    detail_page_text.concat "."
 		    signature += "."
-        	elsif line =~ /(\bSub\s|\bFunction\s)/
+        	elsif line =~ /(\bSub\s|\bFunction\s)/i
         	    methods += 1
         	    detail_page_text.concat "<br>" + indent[] + line.strip.gsub(/</, "&lt;").gsub(/>/, "&gt;") + "<br>" + indent[] 
 		    signature += "{"
 		    continued_function_sig = true if line =~ /_$/ 
-		elsif line =~ /^\s+'/
-		    signature += "'"
-		    detail_page_text.concat "'"
-		elsif line =~ /Next|End\s+While/
+		elsif line =~ /Next|End\s+While/i
 		    signature += "]"
 		    detail_page_text.concat "]"
-		elsif line =~ /For Each|While/
+		elsif line =~ /For Each|While/i
 		    signature += "["
 		    detail_page_text.concat "["
-		elsif line =~ /End\s+If|End Select/
+		elsif line =~ /End\s+If|End\s+Select/i
 		    signature += ")"
 		    detail_page_text.concat ")"
                 elsif line =~ /\s+Else/i
                     signature += "|"
                     detail_page_text.concat "|"
-		elsif line =~ /[^e]If.*Then\s*$|Select Case/
+		elsif line =~ /If.*Then\s*$|Select Case/i
 		    signature += "("
 		    detail_page_text.concat "("
                 elsif line =~ /\s+Case\s+/i
                     signature += "|"
                     detail_page_text.concat "|"
-		elsif line =~ /[^e]If/
-		    signature += "|"
-		    detail_page_text.concat "|"
+		elsif line =~ /If/i
+		    signature += "?"
+		    detail_page_text.concat "?"
 		elsif line =~ /^\s*$/
         	    detail_page_text.concat " "
 		    signature += " "
