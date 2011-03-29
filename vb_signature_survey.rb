@@ -2,7 +2,7 @@ $signature_survey_directory = "signature_survey"
 $root_directory_name = File.basename(Dir.pwd)
 $file_extension = "vb"
 
-$html_style_block = %Q| 
+$html_style_block = %Q% 
 	<style type="text/css">
 	    body { font-family: georgia, serif; }
 	    h1 { color: #111111 }
@@ -22,18 +22,19 @@ $html_style_block = %Q|
 	    p { display: inline; margin: 0px; padding: 0px; }
 	    div { display: inline; margin: 0px; padding: 0px; }
 	    #legend { font-family: Consolas, monospace; font-size: 14px; margin-bottom:10px; }
-	    #legend td { padding-right: 10px; }
-	</style>|
+	    #legend td { padding-right: 15px; }
+	</style>%
 
-$legend_html = %Q|
+$legend_html = %Q%
     <table id="legend">
-	<tr><td><span style="font-size:18px; font-family: georgia, serif; font-weight: bold;">Legend</span></td></tr>
+	<tr><td style="padding-bottom:10px;"><span style="font-size:18px; font-family: georgia, serif; font-weight: bold;">Legend</span></td></tr>
 	<tr><td><span class="method_count">14m</span> means 14 methods</td> <td><span class="line_count">294L</span> means 294 lines</td> </tr>
-	<tr><td>. is a (non-blank) line</td> <td>' is a comment</td> </tr>
-	<tr><td><span class='inside_if'>\|</span> is a single line If statement</td> <td><div class='inside_method'>{Inside a method}</div></td></tr>
-	<tr><td> <span class='inside_if'>(Inside an if block)</span></td><td> <p class='inside_loop'>[Inside a loop]</p></td></tr>
-	<tr><td> <p class='inside_loop'><span class='inside_if'>[(An if block inside a loop)]</span></p></td><td> <span class='inside_if'><p class='inside_loop'>([A loop inside an if block])</p></span></td></tr>
-    </table>|
+	<tr><td>a space is a blank line</td><td>. is a (non-blank) line</td> </tr>
+	<tr><td><span class='inside_if'>?</span> is a single line If statement</td><td>' is a commented line</td></tr>
+        <tr><td><span class='inside_if'>|</span> is an Else or Case statement</td><td><div class='inside_method'>{Inside a method}</div></td></tr>
+	<tr><td><span class='inside_if'>(Inside an if block)</span></td><td><p class='inside_loop'>[Inside a loop]</p></td></tr>
+	<tr><td><p class='inside_loop'><span class='inside_if'>[(An if block inside a loop)]</span></p></td><td> <span class='inside_if'><p class='inside_loop'>([A loop inside an if block])</p></span></td></tr>
+    </table>%
 
 def for_each_vb_file_in_dir(directory, reportfile, method_to_execute)
     current_directory = Dir.new(directory)
