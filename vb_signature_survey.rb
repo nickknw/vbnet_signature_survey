@@ -128,9 +128,15 @@ def vb_file_report(filename)
 		elsif line =~ /End\s+If|End Select/
 		    signature += ")"
 		    detail_page_text.concat ")"
+                elsif line =~ /\s+Else/i
+                    signature += "|"
+                    detail_page_text.concat "|"
 		elsif line =~ /[^e]If.*Then\s*$|Select Case/
 		    signature += "("
 		    detail_page_text.concat "("
+                elsif line =~ /\s+Case\s+/i
+                    signature += "|"
+                    detail_page_text.concat "|"
 		elsif line =~ /[^e]If/
 		    signature += "|"
 		    detail_page_text.concat "|"
@@ -162,7 +168,7 @@ def vb_file_report(filename)
 
 	    signature_html.gsub!(/\(/, "<span class='inside_if'>(")
 	    signature_html.gsub!(/\)/, ")</span>")
-	    signature_html.gsub!(/\|/, "<span class='inside_if'>|</span>")
+	    signature_html.gsub!(/\?/, "<span class='inside_if'>?</span>")
 
 	    signature_html = "<span class='signature'>#{signature_html}</span>"
 
@@ -191,7 +197,7 @@ def vb_file_report(filename)
 
 	    detail_page_text.gsub!(/\(/, "<span class='inside_if'>(")
 	    detail_page_text.gsub!(/\)/, ")</span>")
-	    detail_page_text.gsub!(/\|/, "<span class='inside_if'>|</span>")
+	    detail_page_text.gsub!(/\?/, "<span class='inside_if'>?</span>")
 
 	    g.puts detail_page_text
 
