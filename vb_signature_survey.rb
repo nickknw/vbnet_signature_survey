@@ -93,7 +93,10 @@ def vb_file_report(filename)
             f.each_line { |line|
         	lines += 1
 
-		#begin VB-specific code
+		# begin VB-specific code
+                # this is pretty hacky for now, lots of edge cases that aren't
+                # covered. Doing this really properly probably requires
+                # something a bit more sophisticated
 		if continued_function_sig
         	    detail_page_text.concat indent[] + line.strip.gsub(/</, "&lt;").gsub(/>/, "&gt;") + "<br>" + indent[] 
 		    continued_function_sig = false unless line =~ /_$/ 
@@ -123,7 +126,7 @@ def vb_file_report(filename)
 		elsif line =~ /Next|End\s+While/i
 		    signature += "]"
 		    detail_page_text.concat "]"
-		elsif line =~ /For Each|While/i
+		elsif line =~ /For Each|While|^\s+For\s/i
 		    signature += "["
 		    detail_page_text.concat "["
 		elsif line =~ /End\s+If|End\s+Select/i
