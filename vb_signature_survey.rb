@@ -188,10 +188,10 @@ def vb_file_report(filename)
 	    detail_page_text.gsub!(/>\s*\(\) (As|Handles)/, ">&#40;&#41; \\1")
 	    detail_page_text.gsub!(/\) (As|Handles)/, "&#41; \\1")
 	    detail_page_text.gsub!(/\s\s/, "&nbsp;&nbsp;")
-	    detail_page_text.gsub!(/\b\w+\s?(?=\()/, "<span class='method_name'>\\0</span>")
+
+	    detail_page_text.gsub!(/(Function|Sub)\s+([^(]+)\(/, "\\1 <span class='method_name'>\\2</span>&#40;")
 	    detail_page_text.gsub!(/>\s*\((ByVal|ByRef)/, ">&#40;\\1")
 	    detail_page_text.gsub!(/As (\w+\.)*\w+/, "<span class='type'>\\0</span>")
-
 
 	    detail_page_text.gsub!(/{/, "<div class='inside_method'>{")
 	    detail_page_text.gsub!(/}/, "}</div>")
@@ -201,6 +201,7 @@ def vb_file_report(filename)
 
 	    detail_page_text.gsub!(/\(/, "<span class='inside_if'>(")
 	    detail_page_text.gsub!(/\)/, ")</span>")
+
 	    detail_page_text.gsub!(/\?/, "<span class='inside_if'>?</span>")
 
 	    g.puts detail_page_text
