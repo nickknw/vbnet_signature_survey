@@ -1,7 +1,7 @@
 Modified Signature Survey
 ==========================
 
-[VB.NET Signature Survey](http://nickknowlson.com/projects/vbnet-signature-survey/) home page. Screenshots included!
+[VB.NET Signature Survey](http://nickknowlson.com/projects/vbnet-signature-survey/) home page. Contains all of the following information + screenshots!
 
 Details
 --------------------------
