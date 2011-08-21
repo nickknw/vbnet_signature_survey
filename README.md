@@ -1,11 +1,6 @@
 Modified Signature Survey
 ==========================
 
-[VB.NET Signature Survey](http://nickknowlson.com/projects/vbnet-signature-survey/) home page. Contains all of the following information + screenshots!
-
-Details
---------------------------
-
 A signature survey is a simple text-only visualization of source code, pioneered
 by Ward Cunningham. The original was written with Java in mind and essentially
 strips out all characters except for curly braces and semicolons. Check out the
