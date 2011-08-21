@@ -9,7 +9,7 @@ Details
 A signature survey is a simple text-only visualization of source code, pioneered
 by Ward Cunningham. The original was written with Java in mind and essentially
 strips out all characters except for curly braces and semicolons. Check out the
-[interactive example](report/) to really get a feel for my version.
+[interactive example](http://nickknowlson.com/projects/vbnet-signature-survey/report/) to really get a feel for my version.
 
 What use is it?
 ---
