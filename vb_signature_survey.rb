@@ -123,10 +123,10 @@ def vb_file_report(filename)
         	    detail_page_text.concat "<br>" + indent[] + line.strip.gsub(/</, "&lt;").gsub(/>/, "&gt;") + "<br>" + indent[] 
 		    signature += "{"
 		    continued_function_sig = true if line =~ /_$/ 
-		elsif line =~ /Next|End\s+While/i
+		elsif line =~ /Next|End\s+While|^\s+Loop/i
 		    signature += "]"
 		    detail_page_text.concat "]"
-		elsif line =~ /For Each|While|^\s+For\s/i
+		elsif line =~ /^\s+For Each|^\s+While|^\s+For\s|^\s+Do Until
 		    signature += "["
 		    detail_page_text.concat "["
 		elsif line =~ /End\s+If|End\s+Select/i
