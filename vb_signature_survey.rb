@@ -92,6 +92,7 @@ def vb_file_report(filename)
 	    continued_function_sig = false;
             f.each_line { |line|
         	lines += 1
+		line = line.scrub
 
 		# begin VB-specific code
                 # this is pretty hacky for now, lots of edge cases that aren't
@@ -108,7 +109,7 @@ def vb_file_report(filename)
         	    indent_level += 1
 		    signature += "."
         	elsif line =~ /#End Region/i
-        	    indent_level -= 1
+        	    indent_level = [indent_level - 1, 0].max
         	    detail_page_text.concat "<br>" + indent[] + line.strip.gsub(/</, "&lt;").gsub(/>/, "&gt;") + "<br>" + indent[]
 		    signature += "."
 		elsif line =~ /(End\s+Sub|End\s+Function)/i
